@@ -16,8 +16,8 @@ import static Parsers.UserHandler.MarshallSAX;
 
 public class SaxParser {
 
-    public static void main(String[] args) throws FileNotFoundException, XMLStreamException {
-       /* try {
+    private static void DemarshallSAX(){
+        try {
             File inputFile = new File("C:\\Users\\user\\Desktop\\универ\\4курс\\code\\ITPOI\\src\\main\\java\\gamestore.xml");
             SAXParserFactory factory = SAXParserFactory.newInstance();
             SAXParser saxParser = factory.newSAXParser();
@@ -25,8 +25,12 @@ public class SaxParser {
             saxParser.parse(inputFile, userhandler);
         } catch (Exception e) {
             e.printStackTrace();
-        }*/
+        }
+    }
 
+    public static void main(String[] args) throws FileNotFoundException, XMLStreamException {
+
+        DemarshallSAX();
         MarshallSAX();
 
     }
@@ -200,8 +204,96 @@ class UserHandler extends DefaultHandler {
         writer.writeStartElement("lastname");
         writer.writeCharacters("One");
         writer.writeEndElement();
-
         writer.writeEndElement();
+
+        writer.writeStartElement("game");
+        writer.writeAttribute("id","2");
+
+        writer.writeStartElement("title");
+        writer.writeCharacters("Call of Duty: Black Ops 4");
+        writer.writeEndElement();
+        writer.writeStartElement("studio");
+        writer.writeCharacters("Activision");
+        writer.writeEndElement();
+        writer.writeStartElement("year");
+        writer.writeCharacters("2018-12-10");
+        writer.writeEndElement();
+        writer.writeStartElement("genre");
+        writer.writeCharacters("Royal Battle, Action, Shooter, Royal Battle");
+        writer.writeEndElement();
+        writer.writeStartElement("platform");
+        writer.writeCharacters("PlayStation 4, Xbox One, Windows");
+        writer.writeEndElement();
+        writer.writeStartElement("series");
+        writer.writeCharacters("Call of Duty");
+        writer.writeEndElement();
+        writer.writeStartElement("engine");
+        writer.writeCharacters("Modified IW 3.0");
+        writer.writeEndElement();
+        writer.writeStartElement("price");
+        writer.writeCharacters("59.99");
+        writer.writeEndElement();
+        writer.writeStartElement("quantity");
+        writer.writeCharacters("1234");
+        writer.writeEndElement();
+        writer.writeStartElement("promocode");
+        writer.writeCharacters("str12340");
+        writer.writeEndElement();
+        writer.writeStartElement("rating");
+        writer.writeCharacters("Awesome");
+        writer.writeEndElement();
+        writer.writeStartElement("firstname");
+        writer.writeCharacters("Who");
+        writer.writeEndElement();
+        writer.writeStartElement("lastname");
+        writer.writeCharacters("AMI");
+        writer.writeEndElement();
+        writer.writeEndElement();
+
+        writer.writeStartElement("game");
+        writer.writeAttribute("id","3");
+
+        writer.writeStartElement("title");
+        writer.writeCharacters("Destiny 2");
+        writer.writeEndElement();
+        writer.writeStartElement("studio");
+        writer.writeCharacters("Activision");
+        writer.writeEndElement();
+        writer.writeStartElement("year");
+        writer.writeCharacters("2017-09-06");
+        writer.writeEndElement();
+        writer.writeStartElement("genre");
+        writer.writeCharacters("Action, Shooter, Science-fiction");
+        writer.writeEndElement();
+        writer.writeStartElement("platform");
+        writer.writeCharacters("PlayStation 4, Xbox One, Windows");
+        writer.writeEndElement();
+        writer.writeStartElement("series");
+        writer.writeCharacters("Destiny");
+        writer.writeEndElement();
+        writer.writeStartElement("engine");
+        writer.writeCharacters("Tiger Engine");
+        writer.writeEndElement();
+        writer.writeStartElement("price");
+        writer.writeCharacters("14.99");
+        writer.writeEndElement();
+        writer.writeStartElement("quantity");
+        writer.writeCharacters("10");
+        writer.writeEndElement();
+        writer.writeStartElement("promocode");
+        writer.writeCharacters("str12340");
+        writer.writeEndElement();
+        writer.writeStartElement("rating");
+        writer.writeCharacters("Awesome");
+        writer.writeEndElement();
+        writer.writeStartElement("firstname");
+        writer.writeCharacters("IDONT");
+        writer.writeEndElement();
+        writer.writeStartElement("lastname");
+        writer.writeCharacters("KNOW");
+        writer.writeEndElement();
+        writer.writeEndElement();
+
         writer.writeEndElement();
         writer.writeEndElement();
         writer.writeEndDocument();

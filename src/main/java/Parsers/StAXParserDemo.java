@@ -1,13 +1,11 @@
 package Parsers;
 
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.util.Iterator;
 
-import javax.xml.stream.XMLEventReader;
-import javax.xml.stream.XMLInputFactory;
-import javax.xml.stream.XMLStreamConstants;
-import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.*;
 import javax.xml.stream.events.Attribute;
 import javax.xml.stream.events.Characters;
 import javax.xml.stream.events.EndElement;
@@ -16,11 +14,12 @@ import javax.xml.stream.events.XMLEvent;
 
 public class StAXParserDemo {
 
-    public static void main(String[] args) {
-        Parse();
+    public static void main(String[] args) throws FileNotFoundException, XMLStreamException {
+        //DemarshallStAX();
+        MarshallStAX();
     }
 
-    public static void Parse(){
+    public static void DemarshallStAX(){
 
         boolean bTitle = false;
         boolean bStudio = false;
@@ -155,6 +154,153 @@ public class StAXParserDemo {
         } catch (XMLStreamException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void MarshallStAX() throws FileNotFoundException, XMLStreamException {
+
+        XMLOutputFactory factory =  XMLOutputFactory.newFactory();
+        XMLStreamWriter writer = factory.createXMLStreamWriter(new FileOutputStream("C:\\Users\\user\\Desktop\\универ\\4курс\\code\\ITPOI\\src\\main\\java\\StAX.xml"));
+        writer.writeStartDocument();
+        writer.writeStartElement("games");
+        writer.writeStartElement("gameStore");
+
+        writer.writeStartElement("game");
+        writer.writeAttribute("id","1");
+
+        writer.writeStartElement("title");
+        writer.writeCharacters("Assassin's Creed Odyssey");
+        writer.writeEndElement();
+        writer.writeStartElement("studio");
+        writer.writeCharacters("Ubisoft");
+        writer.writeEndElement();
+        writer.writeStartElement("year");
+        writer.writeCharacters("2018-10-05");
+        writer.writeEndElement();
+        writer.writeStartElement("genre");
+        writer.writeCharacters("Action, RPG");
+        writer.writeEndElement();
+        writer.writeStartElement("platform");
+        writer.writeCharacters("PlayStation 4, Xbox One, Nintendo Switch, Microsoft Windows");
+        writer.writeEndElement();
+        writer.writeStartElement("series");
+        writer.writeCharacters("Assassin’s Creed");
+        writer.writeEndElement();
+        writer.writeStartElement("engine");
+        writer.writeCharacters("Anvil engine");
+        writer.writeEndElement();
+        writer.writeStartElement("price");
+        writer.writeCharacters("123.45");
+        writer.writeEndElement();
+        writer.writeStartElement("quantity");
+        writer.writeCharacters("1234");
+        writer.writeEndElement();
+        writer.writeStartElement("promocode");
+        writer.writeCharacters("str12340");
+        writer.writeEndElement();
+        writer.writeStartElement("rating");
+        writer.writeCharacters("Awesome");
+        writer.writeEndElement();
+        writer.writeStartElement("firstname");
+        writer.writeCharacters("Some");
+        writer.writeEndElement();
+        writer.writeStartElement("lastname");
+        writer.writeCharacters("One");
+        writer.writeEndElement();
+        writer.writeEndElement();
+
+        writer.writeStartElement("game");
+        writer.writeAttribute("id","2");
+
+        writer.writeStartElement("title");
+        writer.writeCharacters("Call of Duty: Black Ops 4");
+        writer.writeEndElement();
+        writer.writeStartElement("studio");
+        writer.writeCharacters("Activision");
+        writer.writeEndElement();
+        writer.writeStartElement("year");
+        writer.writeCharacters("2018-12-10");
+        writer.writeEndElement();
+        writer.writeStartElement("genre");
+        writer.writeCharacters("Royal Battle, Action, Shooter, Royal Battle");
+        writer.writeEndElement();
+        writer.writeStartElement("platform");
+        writer.writeCharacters("PlayStation 4, Xbox One, Windows");
+        writer.writeEndElement();
+        writer.writeStartElement("series");
+        writer.writeCharacters("Call of Duty");
+        writer.writeEndElement();
+        writer.writeStartElement("engine");
+        writer.writeCharacters("Modified IW 3.0");
+        writer.writeEndElement();
+        writer.writeStartElement("price");
+        writer.writeCharacters("59.99");
+        writer.writeEndElement();
+        writer.writeStartElement("quantity");
+        writer.writeCharacters("1234");
+        writer.writeEndElement();
+        writer.writeStartElement("promocode");
+        writer.writeCharacters("str12340");
+        writer.writeEndElement();
+        writer.writeStartElement("rating");
+        writer.writeCharacters("Awesome");
+        writer.writeEndElement();
+        writer.writeStartElement("firstname");
+        writer.writeCharacters("Who");
+        writer.writeEndElement();
+        writer.writeStartElement("lastname");
+        writer.writeCharacters("AMI");
+        writer.writeEndElement();
+        writer.writeEndElement();
+
+        writer.writeStartElement("game");
+        writer.writeAttribute("id","3");
+
+        writer.writeStartElement("title");
+        writer.writeCharacters("Destiny 2");
+        writer.writeEndElement();
+        writer.writeStartElement("studio");
+        writer.writeCharacters("Activision");
+        writer.writeEndElement();
+        writer.writeStartElement("year");
+        writer.writeCharacters("2017-09-06");
+        writer.writeEndElement();
+        writer.writeStartElement("genre");
+        writer.writeCharacters("Action, Shooter, Science-fiction");
+        writer.writeEndElement();
+        writer.writeStartElement("platform");
+        writer.writeCharacters("PlayStation 4, Xbox One, Windows");
+        writer.writeEndElement();
+        writer.writeStartElement("series");
+        writer.writeCharacters("Destiny");
+        writer.writeEndElement();
+        writer.writeStartElement("engine");
+        writer.writeCharacters("Tiger Engine");
+        writer.writeEndElement();
+        writer.writeStartElement("price");
+        writer.writeCharacters("14.99");
+        writer.writeEndElement();
+        writer.writeStartElement("quantity");
+        writer.writeCharacters("10");
+        writer.writeEndElement();
+        writer.writeStartElement("promocode");
+        writer.writeCharacters("str12340");
+        writer.writeEndElement();
+        writer.writeStartElement("rating");
+        writer.writeCharacters("Awesome");
+        writer.writeEndElement();
+        writer.writeStartElement("firstname");
+        writer.writeCharacters("IDONT");
+        writer.writeEndElement();
+        writer.writeStartElement("lastname");
+        writer.writeCharacters("KNOW");
+        writer.writeEndElement();
+        writer.writeEndElement();
+
+        writer.writeEndElement();
+        writer.writeEndElement();
+        writer.writeEndDocument();
+
+
     }
 
 }

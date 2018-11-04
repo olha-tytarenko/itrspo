@@ -16,7 +16,7 @@ import java.io.File;
 public class DomParser {
 
     public static void main(String[] args) throws TransformerException, ParserConfigurationException {
-        //DemarshallDOM();
+        DemarshallDOM();
         MarshallDOM();
     }
 
