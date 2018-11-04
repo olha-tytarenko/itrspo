@@ -30,6 +30,11 @@ public class StAXParserDemo {
         boolean bSeries = false;
         boolean bEngine = false;
         boolean bPrice = false;
+        boolean bQuantity = false;
+        boolean bPromocode = false;
+        boolean bRating = false;
+        boolean bFirstname = false;
+        boolean bLastname = false;
 
         try {
             XMLInputFactory factory = XMLInputFactory.newInstance();
@@ -65,28 +70,39 @@ public class StAXParserDemo {
                             bEngine = true;
                         } else if (qName.equalsIgnoreCase("price")) {
                             bPrice = true;
-                        } break;
+                        } else if (qName.equalsIgnoreCase("quantity")) {
+                            bQuantity = true;
+                        } else if (qName.equalsIgnoreCase("promocode")) {
+                            bPromocode = true;
+                        } else if (qName.equalsIgnoreCase("rating")) {
+                            bRating = true;
+                        } else if (qName.equalsIgnoreCase("firstname")) {
+                            bFirstname = true;
+                        } else if (qName.equalsIgnoreCase("lastname")) {
+                            bLastname = true;
+                        }
+                        break;
 
                     case XMLStreamConstants.CHARACTERS:
                         Characters characters = event.asCharacters();
                         if(bTitle) {
-                            System.out.println("First Name: " + characters.getData());
+                            System.out.println("Title: " + characters.getData());
                             bTitle = false;
                         }
                         if(bStudio) {
-                            System.out.println("Last Name: " + characters.getData());
+                            System.out.println("Studio: " + characters.getData());
                             bStudio = false;
                         }
                         if(bYear) {
-                            System.out.println("Nick Name: " + characters.getData());
+                            System.out.println("Outcome date: " + characters.getData());
                             bYear = false;
                         }
                         if(bGenre) {
-                            System.out.println("Marks: " + characters.getData());
+                            System.out.println("Genre: " + characters.getData());
                             bGenre = false;
                         }
                         if(bPlatform) {
-                            System.out.println("Marks: " + characters.getData());
+                            System.out.println("Platform: " + characters.getData());
                             bPlatform = false;
                         }
                         if(bSeries) {
@@ -94,12 +110,33 @@ public class StAXParserDemo {
                             bSeries = false;
                         }
                         if(bEngine) {
-                            System.out.println("Marks: " + characters.getData());
+                            System.out.println("Engine: " + characters.getData());
                             bEngine = false;
                         }
                         if(bPrice) {
-                            System.out.println("Marks: " + characters.getData());
+                            System.out.println("Price: " + characters.getData());
                             bPrice = false;
+                        }
+                        if(bQuantity) {
+                            System.out.println("Quantity: " + characters.getData());
+                            bQuantity = false;
+                        }
+                        if(bPromocode) {
+                            System.out.println("Promocode: " + characters.getData());
+                            bPromocode = false;
+                        }
+                        if(bRating) {
+                            System.out.println("Rating: " + characters.getData());
+                            bRating = false;
+                        }
+                        if(bFirstname) {
+                            System.out.print("Producer: " + characters.getData() + " ");
+                            bFirstname = false;
+                        }
+                        if(bLastname) {
+                            System.out.println(characters.getData());
+                            bLastname = false;
+                            System.out.println("|||||||||||||||||||||||||||||||||||");
                         }
                         break;
 
