@@ -68,7 +68,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="series">
  *           &lt;simpleType>
  *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *               &lt;enumeration value="Assassin’s Creed"/>
+ *               &lt;enumeration value="Assassinï¿½s Creed"/>
  *               &lt;enumeration value="Call of Duty"/>
  *               &lt;enumeration value="Destiny"/>
  *             &lt;/restriction>
@@ -166,7 +166,7 @@ public class GameType {
     @XmlElement(required = true)
     protected String studio;
     @XmlElement(required = true)
-    protected XMLGregorianCalendar year;
+    protected String year;
     @XmlElement(required = true)
     protected String genre;
     @XmlElement(required = true)
@@ -241,19 +241,19 @@ public class GameType {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public XMLGregorianCalendar getYear() {
+    public String getYear() {
         return year;
     }
 
     /**
      * Sets the value of the year property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setYear(XMLGregorianCalendar value) {
+    public void setYear(String value) {
         this.year = value;
     }
 
@@ -431,7 +431,7 @@ public class GameType {
 
     /**
      * Sets the value of the rating property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link GameType.Rating }
@@ -584,17 +584,17 @@ public class GameType {
     public static class Rating {
 
         @XmlElement(name = "Awesome")
-        protected String awesome;
+        protected String awesome = "Awesome";
         @XmlElement(name = "Great")
-        protected String great;
+        protected String great = "Great";
         @XmlElement(name = "Good")
-        protected String good;
+        protected String good = "Good";
         @XmlElement(name = "Normal")
-        protected String normal;
+        protected String normal = "Normal";
         @XmlElement(name = "Bad")
-        protected String bad;
+        protected String bad = "Bad";
         @XmlElement(name = "Awful")
-        protected String awful;
+        protected String awful = "Awful";
 
         /**
          * Gets the value of the awesome property.

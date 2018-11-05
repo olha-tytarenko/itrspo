@@ -1,21 +1,30 @@
 package Parsers;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Iterator;
 
+import javax.xml.XMLConstants;
 import javax.xml.stream.*;
 import javax.xml.stream.events.Attribute;
 import javax.xml.stream.events.Characters;
 import javax.xml.stream.events.EndElement;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.sax.SAXSource;
+import javax.xml.transform.stax.StAXSource;
+import javax.xml.validation.*;
 
 public class StAXParserDemo {
 
-    public static void main(String[] args) throws FileNotFoundException, XMLStreamException {
-        //DemarshallStAX();
+    public static void main(String[] args) throws IOException, XMLStreamException, SAXException {
+       // DemarshallStAX();
         MarshallStAX();
     }
 
@@ -156,7 +165,7 @@ public class StAXParserDemo {
         }
     }
 
-    public static void MarshallStAX() throws FileNotFoundException, XMLStreamException {
+    public static void MarshallStAX() throws IOException, XMLStreamException, SAXException {
 
         XMLOutputFactory factory =  XMLOutputFactory.newFactory();
         XMLStreamWriter writer = factory.createXMLStreamWriter(new FileOutputStream("C:\\Users\\user\\Desktop\\универ\\4курс\\code\\ITPOI\\src\\main\\java\\StAX.xml"));
@@ -299,8 +308,6 @@ public class StAXParserDemo {
         writer.writeEndElement();
         writer.writeEndElement();
         writer.writeEndDocument();
-
-
     }
 
 }
