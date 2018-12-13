@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
            xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <xsd:element name="games" type="gameType"/>
-    <xsd:complexType name="gameType">
+    <xsd:element name="games" type="movieType"/>
+    <xsd:complexType name="movieType">
         <xsd:sequence>
             <xsd:element name="title">
                 <xsd:simpleType>
@@ -25,7 +25,7 @@
                     </xsd:restriction>
                 </xsd:simpleType>
             </xsd:element>
-            <xsd:element name="year">
+            <xsd:element name="dateOfPublishing">
                 <xsd:simpleType>
                     <xsd:restriction base="xsd:date">
                         <xsd:enumeration value="2018-10-05"/>
@@ -114,6 +114,13 @@
                         <xsd:element name="lastname" type="xsd:string"/>
                     </xsd:all>
                 </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="description">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:length value="512"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
             </xsd:element>
         </xsd:sequence>
     </xsd:complexType>

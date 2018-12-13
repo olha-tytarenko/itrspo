@@ -13,9 +13,9 @@ public class Driver {
             TransformerFactory tFactory = TransformerFactory.newInstance();
 
             Source xslDoc = new StreamSource("src/main/java/gamestore.xsl");
-            Source xmlDoc = new StreamSource("src/main/java/gamestore.xml");
+            Source xmlDoc = new StreamSource("src/main/java/moviestore.xml");
 
-            String outputFileName = "C:\\Users\\user\\Desktop\\универ\\4курс\\code\\ITPOI\\src\\main\\java\\gamestore.html";
+            String outputFileName = "Users/user/Documents/test.html";
             OutputStream htmlFile = new FileOutputStream(outputFileName);
 
             Transformer transformer = tFactory.newTransformer(xslDoc);

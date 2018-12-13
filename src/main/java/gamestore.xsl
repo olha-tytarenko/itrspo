@@ -25,7 +25,7 @@
                         <tr bgcolor="#e9c6bc">
                             <td><xsl:value-of select="title"/></td>
                             <td><xsl:value-of select="studio"/></td>
-                            <td><xsl:value-of select="year"/></td>
+                            <td><xsl:value-of select="dateOfPublishing"/></td>
                             <td><xsl:value-of select="genre"/></td>
                             <td><xsl:value-of select="platform"/></td>
                             <td><xsl:value-of select="series"/></td>

@@ -24,7 +24,7 @@ import javax.xml.validation.*;
 public class StAXParserDemo {
 
     public static void main(String[] args) throws IOException, XMLStreamException, SAXException {
-       // DemarshallStAX();
+        DemarshallStAX();
         MarshallStAX();
     }
 
@@ -43,11 +43,12 @@ public class StAXParserDemo {
         boolean bRating = false;
         boolean bFirstname = false;
         boolean bLastname = false;
+        boolean bDescription = false;
 
         try {
             XMLInputFactory factory = XMLInputFactory.newInstance();
             XMLEventReader eventReader =
-                    factory.createXMLEventReader(new FileReader("C:\\Users\\user\\Desktop\\универ\\4курс\\code\\ITPOI\\src\\main\\java\\gamestore.xml"));
+                    factory.createXMLEventReader(new FileReader("/Users/user/Documents/ITPOI/src/main/java/moviestore.xml"));
 
             while(eventReader.hasNext()) {
                 XMLEvent event = eventReader.nextEvent();
@@ -66,7 +67,7 @@ public class StAXParserDemo {
                             bTitle = true;
                         } else if (qName.equalsIgnoreCase("studio")) {
                             bStudio = true;
-                        } else if (qName.equalsIgnoreCase("year")) {
+                        } else if (qName.equalsIgnoreCase("dateOfPublishing")) {
                             bYear = true;
                         } else if (qName.equalsIgnoreCase("genre")) {
                             bGenre = true;
@@ -88,6 +89,8 @@ public class StAXParserDemo {
                             bFirstname = true;
                         } else if (qName.equalsIgnoreCase("lastname")) {
                             bLastname = true;
+                        } else if (qName.equalsIgnoreCase("description")) {
+                            bDescription = true;
                         }
                         break;
 
@@ -141,6 +144,10 @@ public class StAXParserDemo {
                             System.out.print("Producer: " + characters.getData() + " ");
                             bFirstname = false;
                         }
+                        if(bDescription) {
+                            System.out.print("Description: " + characters.getData() + " ");
+                            bDescription = false;
+                        }
                         if(bLastname) {
                             System.out.println(characters.getData());
                             bLastname = false;
@@ -168,7 +175,7 @@ public class StAXParserDemo {
     public static void MarshallStAX() throws IOException, XMLStreamException, SAXException {
 
         XMLOutputFactory factory =  XMLOutputFactory.newFactory();
-        XMLStreamWriter writer = factory.createXMLStreamWriter(new FileOutputStream("C:\\Users\\user\\Desktop\\универ\\4курс\\code\\ITPOI\\src\\main\\java\\StAX.xml"));
+        XMLStreamWriter writer = factory.createXMLStreamWriter(new FileOutputStream("/Users/user/Documents/ITPOI/src/main/java/StAX.xml"));
         writer.writeStartDocument();
         writer.writeStartElement("games");
         writer.writeStartElement("gameStore");
@@ -182,7 +189,7 @@ public class StAXParserDemo {
         writer.writeStartElement("studio");
         writer.writeCharacters("Ubisoft");
         writer.writeEndElement();
-        writer.writeStartElement("year");
+        writer.writeStartElement("dateOfPublishing");
         writer.writeCharacters("2018-10-05");
         writer.writeEndElement();
         writer.writeStartElement("genre");
@@ -209,99 +216,14 @@ public class StAXParserDemo {
         writer.writeStartElement("rating");
         writer.writeCharacters("Awesome");
         writer.writeEndElement();
+        writer.writeStartElement("description");
+        writer.writeCharacters("Descridflk dfjjldv ");
+        writer.writeEndElement();
         writer.writeStartElement("firstname");
         writer.writeCharacters("Some");
         writer.writeEndElement();
         writer.writeStartElement("lastname");
         writer.writeCharacters("One");
-        writer.writeEndElement();
-        writer.writeEndElement();
-
-        writer.writeStartElement("game");
-        writer.writeAttribute("id","2");
-
-        writer.writeStartElement("title");
-        writer.writeCharacters("Call of Duty: Black Ops 4");
-        writer.writeEndElement();
-        writer.writeStartElement("studio");
-        writer.writeCharacters("Activision");
-        writer.writeEndElement();
-        writer.writeStartElement("year");
-        writer.writeCharacters("2018-12-10");
-        writer.writeEndElement();
-        writer.writeStartElement("genre");
-        writer.writeCharacters("Royal Battle, Action, Shooter, Royal Battle");
-        writer.writeEndElement();
-        writer.writeStartElement("platform");
-        writer.writeCharacters("PlayStation 4, Xbox One, Windows");
-        writer.writeEndElement();
-        writer.writeStartElement("series");
-        writer.writeCharacters("Call of Duty");
-        writer.writeEndElement();
-        writer.writeStartElement("engine");
-        writer.writeCharacters("Modified IW 3.0");
-        writer.writeEndElement();
-        writer.writeStartElement("price");
-        writer.writeCharacters("59.99");
-        writer.writeEndElement();
-        writer.writeStartElement("quantity");
-        writer.writeCharacters("1234");
-        writer.writeEndElement();
-        writer.writeStartElement("promocode");
-        writer.writeCharacters("str12340");
-        writer.writeEndElement();
-        writer.writeStartElement("rating");
-        writer.writeCharacters("Awesome");
-        writer.writeEndElement();
-        writer.writeStartElement("firstname");
-        writer.writeCharacters("Who");
-        writer.writeEndElement();
-        writer.writeStartElement("lastname");
-        writer.writeCharacters("AMI");
-        writer.writeEndElement();
-        writer.writeEndElement();
-
-        writer.writeStartElement("game");
-        writer.writeAttribute("id","3");
-
-        writer.writeStartElement("title");
-        writer.writeCharacters("Destiny 2");
-        writer.writeEndElement();
-        writer.writeStartElement("studio");
-        writer.writeCharacters("Activision");
-        writer.writeEndElement();
-        writer.writeStartElement("year");
-        writer.writeCharacters("2017-09-06");
-        writer.writeEndElement();
-        writer.writeStartElement("genre");
-        writer.writeCharacters("Action, Shooter, Science-fiction");
-        writer.writeEndElement();
-        writer.writeStartElement("platform");
-        writer.writeCharacters("PlayStation 4, Xbox One, Windows");
-        writer.writeEndElement();
-        writer.writeStartElement("series");
-        writer.writeCharacters("Destiny");
-        writer.writeEndElement();
-        writer.writeStartElement("engine");
-        writer.writeCharacters("Tiger Engine");
-        writer.writeEndElement();
-        writer.writeStartElement("price");
-        writer.writeCharacters("14.99");
-        writer.writeEndElement();
-        writer.writeStartElement("quantity");
-        writer.writeCharacters("10");
-        writer.writeEndElement();
-        writer.writeStartElement("promocode");
-        writer.writeCharacters("str12340");
-        writer.writeEndElement();
-        writer.writeStartElement("rating");
-        writer.writeCharacters("Awesome");
-        writer.writeEndElement();
-        writer.writeStartElement("firstname");
-        writer.writeCharacters("IDONT");
-        writer.writeEndElement();
-        writer.writeStartElement("lastname");
-        writer.writeCharacters("KNOW");
         writer.writeEndElement();
         writer.writeEndElement();
 

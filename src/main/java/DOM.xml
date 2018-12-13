@@ -4,7 +4,7 @@
         <game id="1">
             <title>Assassin's Creed Odyssey</title>
             <studio>Ubisoft</studio>
-            <year>2018-10-05</year>
+            <dateOfPublishing>2018-10-05</dateOfPublishing>
             <genre>Action, RPG</genre>
             <platform>PlayStation 4, Xbox One, Nintendo Switch, Microsoft Windows</platform>
             <series>Assassin’s Creed</series>
@@ -15,35 +15,7 @@
             <rating>Awesome</rating>
             <firstname>Some</firstname>
             <lastname>One</lastname>
-        </game>
-        <game id="2">
-            <title>Call of Duty: Black Ops 4</title>
-            <studio>Activision</studio>
-            <year>2018-12-10</year>
-            <genre>Royal Battle, Action, Shooter, Royal Battle</genre>
-            <platform>PlayStation 4, Xbox One, Windows</platform>
-            <series>Call of Duty</series>
-            <engine>Modified IW 3.0</engine>
-            <quantity>1234</quantity>
-            <promocode>str12340</promocode>
-            <rating>Awesome</rating>
-            <firstname>Who</firstname>
-            <lastname>AMI</lastname>
-            <price>14.99</price>
-        </game>
-        <game id="3">
-            <title>Destiny 2</title>
-            <studio>Activision</studio>
-            <year>2017-09-06</year>
-            <genre>Action, Shooter, Science-fiction</genre>
-            <platform>PlayStation 4, Xbox One, Windows</platform>
-            <series>Destiny</series>
-            <engine>Tiger Engine</engine>
-            <quantity>10</quantity>
-            <promocode>str12340</promocode>
-            <rating>Awesome</rating>
-            <firstname>IDONT</firstname>
-            <lastname>KNOW</lastname>
+            <description>Description</description>
         </game>
     </gameStore>
 </games>

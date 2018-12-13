@@ -39,7 +39,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *             &lt;/restriction>
  *           &lt;/simpleType>
  *         &lt;/element>
- *         &lt;element name="year">
+ *         &lt;element name="dateOfPublishing">
  *           &lt;simpleType>
  *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}date">
  *               &lt;enumeration value="2018-10-05"/>
@@ -148,7 +148,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlType(name = "gameType", propOrder = {
     "title",
     "studio",
-    "year",
+    "dateOfPublishing",
     "genre",
     "platform",
     "series",
@@ -166,7 +166,7 @@ public class GameType {
     @XmlElement(required = true)
     protected String studio;
     @XmlElement(required = true)
-    protected String year;
+    protected String dateOfPublishing;
     @XmlElement(required = true)
     protected String genre;
     @XmlElement(required = true)
@@ -234,7 +234,7 @@ public class GameType {
     }
 
     /**
-     * Gets the value of the year property.
+     * Gets the value of the dateOfPublishing property.
      * 
      * @return
      *     possible object is
@@ -242,11 +242,11 @@ public class GameType {
      *     
      */
     public String getYear() {
-        return year;
+        return dateOfPublishing;
     }
 
     /**
-     * Sets the value of the year property.
+     * Sets the value of the dateOfPublishing property.
      *
      * @param value
      *     allowed object is
@@ -254,7 +254,7 @@ public class GameType {
      *     
      */
     public void setYear(String value) {
-        this.year = value;
+        this.dateOfPublishing = value;
     }
 
     /**

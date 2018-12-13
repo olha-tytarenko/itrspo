@@ -23,7 +23,7 @@ public class DomParser {
     private static void DemarshallDOM(){
 
         try {
-            File inputFile = new File("C:\\Users\\user\\Desktop\\универ\\4курс\\code\\ITPOI\\src\\main\\java\\gamestore.xml");
+            File inputFile = new File("/Users/user/Documents/ITPOI/src/main/java/moviestore.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(inputFile);
@@ -52,7 +52,7 @@ public class DomParser {
                             .getTextContent());
                     System.out.println("Outcome date : "
                             + eElement
-                            .getElementsByTagName("year")
+                            .getElementsByTagName("dateOfPublishing")
                             .item(0)
                             .getTextContent());
                     System.out.println("Genre : "
@@ -104,6 +104,10 @@ public class DomParser {
                             .getElementsByTagName("lastname")
                             .item(0)
                             .getTextContent());
+                    System.out.println(eElement
+                            .getElementsByTagName("description")
+                            .item(0)
+                            .getTextContent());
                     System.out.println("|||||||||||||||||||||||||||||||||||");
                 }
             }
@@ -134,9 +138,9 @@ public class DomParser {
         studio.setTextContent("Ubisoft");
         game.appendChild(studio);
 
-        Element year = doc.createElement("year");
-        year.setTextContent("2018-10-05");
-        game.appendChild(year);
+        Element dateOfPublishing = doc.createElement("dateOfPublishing");
+        dateOfPublishing.setTextContent("2018-10-05");
+        game.appendChild(dateOfPublishing);
 
         Element genre = doc.createElement("genre");
         genre.setTextContent("Action, RPG");
@@ -178,121 +182,11 @@ public class DomParser {
         lastname.setTextContent("One");
         game.appendChild(lastname);
 
-        Element game2 = doc.createElement ("game");
-        game2.setAttribute("id", "2");
-        root2.appendChild(game2);
+        Element description = doc.createElement("description");
+        description.setTextContent("Description");
+        game.appendChild(description);
 
-        Element title2 = doc.createElement("title");
-        title2.setTextContent("Call of Duty: Black Ops 4");
-        game2.appendChild(title2);
-
-        Element studio2 = doc.createElement("studio");
-        studio2.setTextContent("Activision");
-        game2.appendChild(studio2);
-
-        Element year2 = doc.createElement("year");
-        year2.setTextContent("2018-12-10");
-        game2.appendChild(year2);
-
-        Element genre2 = doc.createElement("genre");
-        genre2.setTextContent("Royal Battle, Action, Shooter, Royal Battle");
-        game2.appendChild(genre2);
-
-        Element platform2 = doc.createElement("platform");
-        platform2.setTextContent("PlayStation 4, Xbox One, Windows");
-        game2.appendChild(platform2);
-
-        Element series2 = doc.createElement("series");
-        series2.setTextContent("Call of Duty");
-        game2.appendChild(series2);
-
-        Element engine2 = doc.createElement("engine");
-        engine2.setTextContent("Modified IW 3.0");
-        game2.appendChild(engine2);
-
-        Element price2 = doc.createElement("price");
-        price2.setTextContent("59.99");
-        game2.appendChild(price2);
-
-        Element quantity2 = doc.createElement("quantity");
-        quantity2.setTextContent("1234");
-        game2.appendChild(quantity2);
-
-        Element promocode2 = doc.createElement("promocode");
-        promocode2.setTextContent("str12340");
-        game2.appendChild(promocode2);
-
-        Element rating2 = doc.createElement("rating");
-        rating2.setTextContent("Awesome");
-        game2.appendChild(rating2);
-
-        Element firstname2 = doc.createElement("firstname");
-        firstname2.setTextContent("Who");
-        game2.appendChild(firstname2);
-
-        Element lastname2 = doc.createElement("lastname");
-        lastname2.setTextContent("AMI");
-        game2.appendChild(lastname2);
-
-
-        Element game3 = doc.createElement ("game");
-        game3.setAttribute("id", "3");
-        root2.appendChild(game3);
-
-        Element title3 = doc.createElement("title");
-        title3.setTextContent("Destiny 2");
-        game3.appendChild(title3);
-
-        Element studio3 = doc.createElement("studio");
-        studio3.setTextContent("Activision");
-        game3.appendChild(studio3);
-
-        Element year3 = doc.createElement("year");
-        year3.setTextContent("2017-09-06");
-        game3.appendChild(year3);
-
-        Element genre3 = doc.createElement("genre");
-        genre3.setTextContent("Action, Shooter, Science-fiction");
-        game3.appendChild(genre3);
-
-        Element platform3 = doc.createElement("platform");
-        platform3.setTextContent("PlayStation 4, Xbox One, Windows");
-        game3.appendChild(platform3);
-
-        Element series3 = doc.createElement("series");
-        series3.setTextContent("Destiny");
-        game3.appendChild(series3);
-
-        Element engine3 = doc.createElement("engine");
-        engine3.setTextContent("Tiger Engine");
-        game3.appendChild(engine3);
-
-        Element price3 = doc.createElement("price");
-        price2.setTextContent("14.99");
-        game2.appendChild(price2);
-
-        Element quantity3 = doc.createElement("quantity");
-        quantity3.setTextContent("10");
-        game3.appendChild(quantity3);
-
-        Element promocode3 = doc.createElement("promocode");
-        promocode3.setTextContent("str12340");
-        game3.appendChild(promocode3);
-
-        Element rating3 = doc.createElement("rating");
-        rating3.setTextContent("Awesome");
-        game3.appendChild(rating3);
-
-        Element firstname3 = doc.createElement("firstname");
-        firstname3.setTextContent("IDONT");
-        game3.appendChild(firstname3);
-
-        Element lastname3 = doc.createElement("lastname");
-        lastname3.setTextContent("KNOW");
-        game3.appendChild(lastname3);
-
-
-        File file = new File("C:\\Users\\user\\Desktop\\универ\\4курс\\code\\ITPOI\\src\\main\\java\\DOM.xml");
+        File file = new File("/Users/user/Documents/ITPOI/src/main/java/DOM.xml");
 
         Transformer transformer = TransformerFactory.newInstance().newTransformer();
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
