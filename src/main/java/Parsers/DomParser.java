@@ -29,7 +29,7 @@ public class DomParser {
             Document doc = dBuilder.parse(inputFile);
             doc.getDocumentElement().normalize();
             System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
-            NodeList nList = doc.getElementsByTagName("game");
+            NodeList nList = doc.getElementsByTagName("movie");
             System.out.println("----------------------------");
 
             for (int temp = 0; temp < nList.getLength(); temp++) {
@@ -38,9 +38,9 @@ public class DomParser {
 
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element eElement = (Element) nNode;
-                    System.out.println("Game id : "
+                    System.out.println("Movie id : "
                             + eElement.getAttribute("id"));
-                    System.out.println("Game name : "
+                    System.out.println("Title: "
                             + eElement
                             .getElementsByTagName("title")
                             .item(0)
@@ -60,19 +60,9 @@ public class DomParser {
                             .getElementsByTagName("genre")
                             .item(0)
                             .getTextContent());
-                    System.out.println("Platform : "
+                    System.out.println("language : "
                             + eElement
-                            .getElementsByTagName("platform")
-                            .item(0)
-                            .getTextContent());
-                    System.out.println("Series : "
-                            + eElement
-                            .getElementsByTagName("series")
-                            .item(0)
-                            .getTextContent());
-                    System.out.println("Engine : "
-                            + eElement
-                            .getElementsByTagName("engine")
+                            .getElementsByTagName("language")
                             .item(0)
                             .getTextContent());
                     System.out.println("Price : "
@@ -85,14 +75,14 @@ public class DomParser {
                             .getElementsByTagName("quantity")
                             .item(0)
                             .getTextContent());
-                    System.out.println("Promocode : "
-                            + eElement
-                            .getElementsByTagName("promocode")
-                            .item(0)
-                            .getTextContent());
                     System.out.println("Rating : "
                             + eElement
                             .getElementsByTagName("rating")
+                            .item(0)
+                            .getTextContent());
+                    System.out.println("Video quality : "
+                            + eElement
+                            .getElementsByTagName("videoQuality")
                             .item(0)
                             .getTextContent());
                     System.out.print("Producer : "
@@ -108,7 +98,7 @@ public class DomParser {
                             .getElementsByTagName("description")
                             .item(0)
                             .getTextContent());
-                    System.out.println("|||||||||||||||||||||||||||||||||||");
+                    System.out.println("-------------------------");
                 }
             }
         } catch (Exception e) {
@@ -120,13 +110,13 @@ public class DomParser {
         factory.setNamespaceAware(true);
         Document doc = factory.newDocumentBuilder().newDocument();
 
-        Element root = doc.createElement ("games");
+        Element root = doc.createElement ("movies");
         doc.appendChild(root);
 
-        Element root2 = doc.createElement ("gameStore");
+        Element root2 = doc.createElement ("movieStore");
         root.appendChild(root2);
 
-        Element game = doc.createElement ("game");
+        Element game = doc.createElement ("movie");
         game.setAttribute("id", "1");
         root2.appendChild(game);
 
@@ -146,17 +136,9 @@ public class DomParser {
         genre.setTextContent("Action, RPG");
         game.appendChild(genre);
 
-        Element platform = doc.createElement("platform");
-        platform.setTextContent("PlayStation 4, Xbox One, Nintendo Switch, Microsoft Windows");
-        game.appendChild(platform);
-
-        Element series = doc.createElement("series");
-        series.setTextContent("Assassin’s Creed");
-        game.appendChild(series);
-
-        Element engine = doc.createElement("engine");
-        engine.setTextContent("Anvil engine");
-        game.appendChild(engine);
+        Element language = doc.createElement("language");
+        language.setTextContent("Anvil engine");
+        game.appendChild(language);
 
         Element price = doc.createElement("price");
         price.setTextContent("123.45");
@@ -166,13 +148,13 @@ public class DomParser {
         quantity.setTextContent("1234");
         game.appendChild(quantity);
 
-        Element promocode = doc.createElement("promocode");
-        promocode.setTextContent("str12340");
-        game.appendChild(promocode);
-
         Element rating = doc.createElement("rating");
         rating.setTextContent("Awesome");
         game.appendChild(rating);
+
+        Element videoQuality = doc.createElement("videoQuality");
+        videoQuality.setTextContent("BlueRay");
+        game.appendChild(videoQuality);
 
         Element firstname = doc.createElement("firstname");
         firstname.setTextContent("Some");

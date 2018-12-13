@@ -24,7 +24,7 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _Games_QNAME = new QName("", "games");
+    private final static QName _Games_QNAME = new QName("", "movies");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: jaxbclasses
@@ -61,7 +61,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link GameType }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "", name = "games")
+    @XmlElementDecl(namespace = "", name = "movies")
     public JAXBElement<GameType> createGames(GameType value) {
         return new JAXBElement<GameType>(_Games_QNAME, GameType.class, null, value);
     }

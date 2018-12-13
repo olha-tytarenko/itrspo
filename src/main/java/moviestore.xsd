@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
            xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <xsd:element name="games" type="movieType"/>
+    <xsd:element name="movies" type="movieType"/>
     <xsd:complexType name="movieType">
         <xsd:sequence>
             <xsd:element name="title">
                 <xsd:simpleType>
                     <xsd:restriction base="xsd:string">
-                        <xsd:enumeration value="Assassin's Creed Odyssey"/>
-                        <xsd:enumeration value="Call of Duty: Black Ops 4"/>
-                        <xsd:enumeration value="Destiny 2"/>
+                        <xsd:enumeration value="Spiderman"/>
+                        <xsd:enumeration value="Cinderella"/>
+                        <xsd:enumeration value="Deadpool 2"/>
                     </xsd:restriction>
                 </xsd:simpleType>
             </xsd:element>
@@ -20,8 +20,10 @@
                         <xsd:minLength value="1"/>
                         <xsd:maxLength value="2"/>
                         <xsd:pattern value="( [A-Z] [a-z] )*"/>
-                        <xsd:enumeration value="Ubisoft"/>
-                        <xsd:enumeration value="Activision"/>
+                        <xsd:enumeration value="Warner brosers"/>
+                        <xsd:enumeration value="Fox"/>
+                        <xsd:enumeration value="Pixar"/>
+                        <xsd:enumeration value="Disney"/>
                     </xsd:restriction>
                 </xsd:simpleType>
             </xsd:element>
@@ -37,43 +39,27 @@
             <xsd:element name="genre">
                 <xsd:simpleType>
                     <xsd:restriction base="xsd:string">
-                        <xsd:enumeration value="Action, RPG"/>
-                        <xsd:enumeration value="Royal Battle, Action, Shooter, Royal Battle"/>
-                        <xsd:enumeration value="Action, Shooter, Science-fiction"/>
+                        <xsd:enumeration value="Horror"/>
+                        <xsd:enumeration value="Drama"/>
+                        <xsd:enumeration value="Comedy"/>
+                        <xsd:enumeration value="Cartoon"/>
                     </xsd:restriction>
                 </xsd:simpleType>
             </xsd:element>
-            <xsd:element name="platform">
+            <xsd:element name="language">
                 <xsd:simpleType>
                     <xsd:restriction base="xsd:string">
-                        <xsd:enumeration value="PlayStation 4, Xbox One, Nintendo Switch, Microsoft Windows"/>
-                        <xsd:enumeration value="PlayStation 4, Xbox One, Windows"/>
-                    </xsd:restriction>
-                </xsd:simpleType>
-            </xsd:element>
-            <xsd:element name="series">
-                <xsd:simpleType>
-                    <xsd:restriction base="xsd:string">
-                        <xsd:enumeration value="Assassin’s Creed"/>
-                        <xsd:enumeration value="Call of Duty"/>
-                        <xsd:enumeration value="Destiny"/>
-                    </xsd:restriction>
-                </xsd:simpleType>
-            </xsd:element>
-            <xsd:element name="engine">
-                <xsd:simpleType>
-                    <xsd:restriction base="xsd:string">
-                        <xsd:enumeration value="Anvil engine"/>
-                        <xsd:enumeration value="Modified IW 3.0"/>
-                        <xsd:enumeration value="Tiger Engine"/>
+                        <xsd:enumeration value="Ukrainian"/>
+                        <xsd:enumeration value="Russian"/>
+                        <xsd:enumeration value="English"/>
                     </xsd:restriction>
                 </xsd:simpleType>
             </xsd:element>
             <xsd:element name="price">
                 <xsd:simpleType>
                     <xsd:restriction base="xsd:decimal">
-                        <xsd:fractionDigits value="3"/>
-                        <xsd:minInclusive value="1"/>
+                        <xsd:fractionDigits value="120"/>
+                        <xsd:minInclusive value="20"/>
                         <xsd:maxExclusive value="999"/>
                     </xsd:restriction>
                 </xsd:simpleType>
@@ -87,23 +73,23 @@
                     </xsd:restriction>
                 </xsd:simpleType>
             </xsd:element>
-            <xsd:element name="promocode">
-                <xsd:simpleType>
-                    <xsd:restriction base="xsd:string">
-                        <xsd:length value="8"/>
-                    </xsd:restriction>
-                </xsd:simpleType>
-            </xsd:element>
-
             <xsd:element name="rating">
                 <xsd:complexType>
                     <xsd:choice>
                         <xsd:element name="Awesome" type="xsd:string"/>
-                        <xsd:element name="Great" type="xsd:string"/>
                         <xsd:element name="Good" type="xsd:string"/>
                         <xsd:element name="Normal" type="xsd:string"/>
                         <xsd:element name="Bad" type="xsd:string"/>
                         <xsd:element name="Awful" type="xsd:string"/>
+                    </xsd:choice>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="videoQuality">
+                <xsd:complexType>
+                    <xsd:choice>
+                        <xsd:element name="BlueRay" type="xsd:string"/>
+                        <xsd:element name="HD" type="xsd:string"/>
+                        <xsd:element name="DVDRip" type="xsd:string"/>
                     </xsd:choice>
                 </xsd:complexType>
             </xsd:element>

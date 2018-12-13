@@ -1,56 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="gamestore.xsl"?>
-<games>
-    <gameStore>
-        <game id="1">
-            <title>Assassin's Creed Odyssey</title>
-            <studio>Ubisoft</studio>
-            <dateOfPublishing>2018-10-05</dateOfPublishing>
-            <genre>Action, RPG</genre>
-            <platform>PlayStation 4, Xbox One, Nintendo Switch, Microsoft Windows</platform>
-            <series>Assassin’s Creed</series>
-            <engine>Anvil engine</engine>
-            <price>123.45</price>
+<?xml-stylesheet type="text/xsl" href="moviestore.xsl"?>
+<movies>
+    <movieStore>
+        <movie id="1">
+            <title>Spiderman</title>
+            <studio>DC</studio>
+            <dateOfPublishing>2002-10-05</dateOfPublishing>
+            <genre>Aventure</genre>
+            <language>AEnglish</language>
+            <price>140</price>
             <quantity>1234</quantity>
-            <promocode>str12340</promocode>
-            <rating>Awesome</rating>
+            <rating>Normal</rating>
+            <videoQuality>BlueRay</videoQuality>
             <firstname>Some</firstname>
             <lastname>One</lastname>
             <description>Description description description description</description>
-        </game>
+        </movie>
 
-        <game id="2">
-            <title>Call of Duty: Black Ops 4</title>
-            <studio>Activision</studio>
+        <movie id="2">
+            <title>Cinderella</title>
+            <studio>Disnay</studio>
             <dateOfPublishing>2018-12-10</dateOfPublishing>
-            <genre>Royal Battle, Action, Shooter, Royal Battle</genre>
-            <platform>PlayStation 4, Xbox One, Windows</platform>
-            <series>Call of Duty</series>
-            <engine>Modified IW 3.0</engine>
+            <genre>Drama, horror</genre>
+            <language>English</language>
             <price>59.99</price>
             <quantity>1234</quantity>
-            <promocode>str12340</promocode>
             <rating>Awesome</rating>
+            <videoQuality>HD</videoQuality>
             <firstname>Who</firstname>
             <lastname>AMI</lastname>
             <description>Description description description description</description>
-        </game>
+        </movie>
 
-        <game id="3">
-            <title>Destiny 2</title>
-            <studio>Activision</studio>
+        <movie id="3">
+            <title>Deadpool 2</title>
+            <studio>Marvel</studio>
             <dateOfPublishing>2017-09-06</dateOfPublishing>
-            <genre>Action, Shooter, Science-fiction</genre>
-            <platform>PlayStation 4, Xbox One, Windows</platform>
-            <series>Destiny</series>
-            <engine>Tiger Engine</engine>
+            <genre>Comedy</genre>
+            <language>English</language>
             <price>14.99</price>
             <quantity>10</quantity>
-            <promocode>str12340</promocode>
             <rating>Awesome</rating>
+            <videoQuality>DVDRip</videoQuality>
             <firstname>IDONT</firstname>
             <lastname>KNOW</lastname>
             <description>Description description description description</description>
-        </game>
-    </gameStore>
-</games>
+        </movie>
+    </movieStore>
+</movies>

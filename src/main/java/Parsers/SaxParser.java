@@ -43,8 +43,7 @@ class UserHandler extends DefaultHandler {
     private boolean bYear = false;
     private boolean bGenre = false;
     private boolean bPlatform = false;
-    private boolean bSeries = false;
-    private boolean bEngine = false;
+    private boolean bLanguage = false;
     private boolean bPrice = false;
     private boolean bQuantity = false;
     private boolean bPromocode = false;
@@ -52,16 +51,17 @@ class UserHandler extends DefaultHandler {
     private boolean bFirstname = false;
     private boolean bLastname = false;
     private boolean bDescription = false;
+    private boolean bQuality = false;
 
     @Override
     public void startElement(
             String uri, String localName, String qName, Attributes attributes)
             throws SAXException {
 
-        if (qName.equalsIgnoreCase("game")) {
+        if (qName.equalsIgnoreCase("movie")) {
             String gameId = attributes.getValue("id");
-            System.out.println("Game id : " + gameId);
-        } else if (qName.equalsIgnoreCase("Game name")) {
+            System.out.println("Movie id : " + gameId);
+        } else if (qName.equalsIgnoreCase("Movie name")) {
             bTitle = true;
         } else if (qName.equalsIgnoreCase("Developer studio")) {
             bStudio = true;
@@ -74,11 +74,8 @@ class UserHandler extends DefaultHandler {
         else if (qName.equalsIgnoreCase("Platform")) {
             bPlatform = true;
         }
-        else if (qName.equalsIgnoreCase("Series")) {
-            bSeries = true;
-        }
-        else if (qName.equalsIgnoreCase("Engine")) {
-            bEngine = true;
+        else if (qName.equalsIgnoreCase("language")) {
+            bLanguage = true;
         }
         else if (qName.equalsIgnoreCase("Price")) {
             bPrice = true;
@@ -91,6 +88,9 @@ class UserHandler extends DefaultHandler {
         }
         else if (qName.equalsIgnoreCase("Rating")) {
             bRating = true;
+        }
+        else if (qName.equalsIgnoreCase("videoQuality")) {
+            bQuality = true;
         }
         else if (qName.equalsIgnoreCase("Firstname")) {
             bFirstname = true;
@@ -116,7 +116,7 @@ class UserHandler extends DefaultHandler {
     public void characters(char ch[], int start, int length) throws SAXException {
 
         if (bTitle) {
-            System.out.println("Game name : " + new String(ch, start, length));
+            System.out.println("Movie title : " + new String(ch, start, length));
             bTitle = false;
         } else if (bStudio) {
             System.out.println("Last Name : " + new String(ch, start, length));
@@ -130,12 +130,9 @@ class UserHandler extends DefaultHandler {
         } else if (bPlatform) {
             System.out.println("Platform : " + new String(ch, start, length));
             bPlatform = false;
-        } else if (bSeries) {
-            System.out.println("Series : " + new String(ch, start, length));
-            bSeries = false;
-        } else if (bEngine) {
-            System.out.println("Engine : " + new String(ch, start, length));
-            bEngine = false;
+        } else if (bLanguage) {
+            System.out.println("Language : " + new String(ch, start, length));
+            bLanguage = false;
         } else if (bPrice) {
             System.out.println("Price : " + new String(ch, start, length));
             bPrice = false;
@@ -148,6 +145,9 @@ class UserHandler extends DefaultHandler {
         } else if (bRating) {
             System.out.println("Rating : " + new String(ch, start, length));
             bRating = false;
+        } else if (bQuality) {
+            System.out.println("Video quality : " + new String(ch, start, length));
+            bQuality = false;
         } else if (bFirstname) {
             System.out.print("Producer : " + new String(ch, start, length) + " ");
             bFirstname = false;
@@ -157,7 +157,7 @@ class UserHandler extends DefaultHandler {
         } else if (bLastname) {
             System.out.println(new String(ch, start, length));
             bLastname = false;
-            System.out.println("|||||||||||||||||||||||||||||||||||");
+            System.out.println("----------------------");
         }
     }
 
@@ -166,10 +166,10 @@ class UserHandler extends DefaultHandler {
         XMLOutputFactory factory =  XMLOutputFactory.newFactory();
         XMLStreamWriter writer = factory.createXMLStreamWriter(new FileOutputStream("/Users/user/Documents/ITPOI/src/main/java/SAX.xml"));
         writer.writeStartDocument();
-        writer.writeStartElement("games");
-        writer.writeStartElement("gameStore");
+        writer.writeStartElement("movies");
+        writer.writeStartElement("movieStore");
 
-        writer.writeStartElement("game");
+        writer.writeStartElement("movie");
         writer.writeAttribute("id","1");
 
         writer.writeStartElement("title");
@@ -184,13 +184,7 @@ class UserHandler extends DefaultHandler {
         writer.writeStartElement("genre");
         writer.writeCharacters("Action, RPG");
         writer.writeEndElement();
-        writer.writeStartElement("platform");
-        writer.writeCharacters("PlayStation 4, Xbox One, Nintendo Switch, Microsoft Windows");
-        writer.writeEndElement();
-        writer.writeStartElement("series");
-        writer.writeCharacters("Assassin’s Creed");
-        writer.writeEndElement();
-        writer.writeStartElement("engine");
+        writer.writeStartElement("language");
         writer.writeCharacters("Anvil engine");
         writer.writeEndElement();
         writer.writeStartElement("price");
@@ -199,11 +193,11 @@ class UserHandler extends DefaultHandler {
         writer.writeStartElement("quantity");
         writer.writeCharacters("1234");
         writer.writeEndElement();
-        writer.writeStartElement("promocode");
-        writer.writeCharacters("str12340");
-        writer.writeEndElement();
         writer.writeStartElement("rating");
         writer.writeCharacters("Awesome");
+        writer.writeEndElement();
+        writer.writeStartElement("videoQuality");
+        writer.writeCharacters("BlueRay");
         writer.writeEndElement();
         writer.writeStartElement("description");
         writer.writeCharacters("Deflksdlvsdfj sdfjjldsf");

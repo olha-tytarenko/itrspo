@@ -57,24 +57,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *             &lt;/restriction>
  *           &lt;/simpleType>
  *         &lt;/element>
- *         &lt;element name="platform">
- *           &lt;simpleType>
- *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *               &lt;enumeration value="PlayStation 4, Xbox One, Nintendo Switch, Microsoft Windows"/>
- *               &lt;enumeration value="PlayStation 4, Xbox One, Windows"/>
- *             &lt;/restriction>
- *           &lt;/simpleType>
- *         &lt;/element>
- *         &lt;element name="series">
- *           &lt;simpleType>
- *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *               &lt;enumeration value="Assassin�s Creed"/>
- *               &lt;enumeration value="Call of Duty"/>
- *               &lt;enumeration value="Destiny"/>
- *             &lt;/restriction>
- *           &lt;/simpleType>
- *         &lt;/element>
- *         &lt;element name="engine">
+ *         &lt;element name="language">
  *           &lt;simpleType>
  *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
  *               &lt;enumeration value="Anvil engine"/>
@@ -98,13 +81,6 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *               &lt;totalDigits value="5"/>
  *               &lt;minExclusive value="1"/>
  *               &lt;maxExclusive value="10000"/>
- *             &lt;/restriction>
- *           &lt;/simpleType>
- *         &lt;/element>
- *         &lt;element name="promocode">
- *           &lt;simpleType>
- *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *               &lt;length value="8"/>
  *             &lt;/restriction>
  *           &lt;/simpleType>
  *         &lt;/element>
@@ -151,11 +127,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "dateOfPublishing",
     "genre",
     "platform",
-    "series",
-    "engine",
+    "language",
     "price",
     "quantity",
-    "promocode",
     "rating",
     "producer"
 })
@@ -170,16 +144,10 @@ public class GameType {
     @XmlElement(required = true)
     protected String genre;
     @XmlElement(required = true)
-    protected String platform;
-    @XmlElement(required = true)
-    protected String series;
-    @XmlElement(required = true)
-    protected String engine;
+    protected String language;
     @XmlElement(required = true)
     protected BigDecimal price;
     protected int quantity;
-    @XmlElement(required = true)
-    protected String promocode;
     @XmlElement(required = true)
     protected GameType.Rating rating;
     @XmlElement(required = true)
@@ -282,75 +250,27 @@ public class GameType {
     }
 
     /**
-     * Gets the value of the platform property.
+     * Gets the value of the language property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getPlatform() {
-        return platform;
+    public String getLanguage() {
+        return language;
     }
 
     /**
-     * Sets the value of the platform property.
+     * Sets the value of the language property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setPlatform(String value) {
-        this.platform = value;
-    }
-
-    /**
-     * Gets the value of the series property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getSeries() {
-        return series;
-    }
-
-    /**
-     * Sets the value of the series property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setSeries(String value) {
-        this.series = value;
-    }
-
-    /**
-     * Gets the value of the engine property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getEngine() {
-        return engine;
-    }
-
-    /**
-     * Sets the value of the engine property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setEngine(String value) {
-        this.engine = value;
+    public void setLanguage(String value) {
+        this.language = value;
     }
 
     /**
@@ -391,30 +311,6 @@ public class GameType {
      */
     public void setQuantity(int value) {
         this.quantity = value;
-    }
-
-    /**
-     * Gets the value of the promocode property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getPromocode() {
-        return promocode;
-    }
-
-    /**
-     * Sets the value of the promocode property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setPromocode(String value) {
-        this.promocode = value;
     }
 
     /**

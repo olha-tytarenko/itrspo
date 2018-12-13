@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<games>
-    <gameStore>
-        <game id="1">
+<movies>
+    <movieStore>
+        <movie id="1">
             <title>Assassin's Creed Odyssey</title>
             <studio>Ubisoft</studio>
             <dateOfPublishing>2018-10-05</dateOfPublishing>
             <genre>Action, RPG</genre>
-            <platform>PlayStation 4, Xbox One, Nintendo Switch, Microsoft Windows</platform>
-            <series>Assassin’s Creed</series>
-            <engine>Anvil engine</engine>
+            <language>Anvil engine</language>
             <price>123.45</price>
             <quantity>1234</quantity>
-            <promocode>str12340</promocode>
             <rating>Awesome</rating>
+            <videoQuality>BlueRay</videoQuality>
             <firstname>Some</firstname>
             <lastname>One</lastname>
             <description>Description</description>
-        </game>
-    </gameStore>
-</games>
+        </movie>
+    </movieStore>
+</movies>

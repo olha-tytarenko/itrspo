@@ -9,30 +9,24 @@
                     <tr bgcolor="#9acd32">
                         <th>Title</th>
                         <th>Studio</th>
-                        <th>Outcome date</th>
+                        <th>Date of publishing</th>
                         <th>Genre</th>
-                        <th>Platforms</th>
-                        <th>Series</th>
-                        <th>Engine</th>
+                        <th>Language</th>
                         <th>Price</th>
                         <th>Quantity</th>
-                        <th>Promocode</th>
                         <th>Rating</th>
                         <th>Producer first name</th>
                         <th>Producer last name</th>
                     </tr>
-                    <xsl:for-each select="games/gameStore/game">
+                    <xsl:for-each select="movies/movieStore/movie">
                         <tr bgcolor="#e9c6bc">
                             <td><xsl:value-of select="title"/></td>
                             <td><xsl:value-of select="studio"/></td>
                             <td><xsl:value-of select="dateOfPublishing"/></td>
                             <td><xsl:value-of select="genre"/></td>
-                            <td><xsl:value-of select="platform"/></td>
-                            <td><xsl:value-of select="series"/></td>
-                            <td><xsl:value-of select="engine"/></td>
+                            <td><xsl:value-of select="language"/></td>
                             <td><xsl:value-of select="price"/></td>
                             <td><xsl:value-of select="quantity"/></td>
-                            <td><xsl:value-of select="promocode"/></td>
                             <td><xsl:value-of select="rating"/></td>
                             <td><xsl:value-of select="firstname"/></td>
                             <td><xsl:value-of select="lastname"/></td>

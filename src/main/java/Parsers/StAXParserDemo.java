@@ -35,8 +35,7 @@ public class StAXParserDemo {
         boolean bYear = false;
         boolean bGenre = false;
         boolean bPlatform = false;
-        boolean bSeries = false;
-        boolean bEngine = false;
+        boolean bLanguage = false;
         boolean bPrice = false;
         boolean bQuantity = false;
         boolean bPromocode = false;
@@ -44,6 +43,7 @@ public class StAXParserDemo {
         boolean bFirstname = false;
         boolean bLastname = false;
         boolean bDescription = false;
+        boolean bQuality = false;
 
         try {
             XMLInputFactory factory = XMLInputFactory.newInstance();
@@ -59,10 +59,10 @@ public class StAXParserDemo {
                         StartElement startElement = event.asStartElement();
                         String qName = startElement.getName().getLocalPart();
 
-                        if (qName.equalsIgnoreCase("game")) {
+                        if (qName.equalsIgnoreCase("movie")) {
                             Iterator<Attribute> attributes = startElement.getAttributes();
                             String gameId = attributes.next().getValue();
-                            System.out.println("Game id : " + gameId);
+                            System.out.println("Movie id : " + gameId);
                         } else if (qName.equalsIgnoreCase("title")) {
                             bTitle = true;
                         } else if (qName.equalsIgnoreCase("studio")) {
@@ -71,20 +71,16 @@ public class StAXParserDemo {
                             bYear = true;
                         } else if (qName.equalsIgnoreCase("genre")) {
                             bGenre = true;
-                        } else if (qName.equalsIgnoreCase("platform")) {
-                            bPlatform = true;
-                        } else if (qName.equalsIgnoreCase("series")) {
-                            bSeries = true;
-                        } else if (qName.equalsIgnoreCase("engine")) {
-                            bEngine = true;
+                        } else if (qName.equalsIgnoreCase("language")) {
+                            bLanguage = true;
                         } else if (qName.equalsIgnoreCase("price")) {
                             bPrice = true;
                         } else if (qName.equalsIgnoreCase("quantity")) {
                             bQuantity = true;
-                        } else if (qName.equalsIgnoreCase("promocode")) {
-                            bPromocode = true;
                         } else if (qName.equalsIgnoreCase("rating")) {
                             bRating = true;
+                        } else if (qName.equalsIgnoreCase("videoQuality")) {
+                            bQuality = true;
                         } else if (qName.equalsIgnoreCase("firstname")) {
                             bFirstname = true;
                         } else if (qName.equalsIgnoreCase("lastname")) {
@@ -116,13 +112,9 @@ public class StAXParserDemo {
                             System.out.println("Platform: " + characters.getData());
                             bPlatform = false;
                         }
-                        if(bSeries) {
-                            System.out.println("Marks: " + characters.getData());
-                            bSeries = false;
-                        }
-                        if(bEngine) {
-                            System.out.println("Engine: " + characters.getData());
-                            bEngine = false;
+                        if(bLanguage) {
+                            System.out.println("language: " + characters.getData());
+                            bLanguage = false;
                         }
                         if(bPrice) {
                             System.out.println("Price: " + characters.getData());
@@ -140,6 +132,10 @@ public class StAXParserDemo {
                             System.out.println("Rating: " + characters.getData());
                             bRating = false;
                         }
+                        if(bQuality) {
+                            System.out.println("Video quality: " + characters.getData());
+                            bQuality = false;
+                        }
                         if(bFirstname) {
                             System.out.print("Producer: " + characters.getData() + " ");
                             bFirstname = false;
@@ -151,7 +147,7 @@ public class StAXParserDemo {
                         if(bLastname) {
                             System.out.println(characters.getData());
                             bLastname = false;
-                            System.out.println("|||||||||||||||||||||||||||||||||||");
+                            System.out.println("-------------------------");
                         }
                         break;
 
@@ -177,10 +173,10 @@ public class StAXParserDemo {
         XMLOutputFactory factory =  XMLOutputFactory.newFactory();
         XMLStreamWriter writer = factory.createXMLStreamWriter(new FileOutputStream("/Users/user/Documents/ITPOI/src/main/java/StAX.xml"));
         writer.writeStartDocument();
-        writer.writeStartElement("games");
-        writer.writeStartElement("gameStore");
+        writer.writeStartElement("movies");
+        writer.writeStartElement("movieStore");
 
-        writer.writeStartElement("game");
+        writer.writeStartElement("movie");
         writer.writeAttribute("id","1");
 
         writer.writeStartElement("title");
@@ -195,13 +191,7 @@ public class StAXParserDemo {
         writer.writeStartElement("genre");
         writer.writeCharacters("Action, RPG");
         writer.writeEndElement();
-        writer.writeStartElement("platform");
-        writer.writeCharacters("PlayStation 4, Xbox One, Nintendo Switch, Microsoft Windows");
-        writer.writeEndElement();
-        writer.writeStartElement("series");
-        writer.writeCharacters("Assassin’s Creed");
-        writer.writeEndElement();
-        writer.writeStartElement("engine");
+        writer.writeStartElement("language");
         writer.writeCharacters("Anvil engine");
         writer.writeEndElement();
         writer.writeStartElement("price");
@@ -210,11 +200,11 @@ public class StAXParserDemo {
         writer.writeStartElement("quantity");
         writer.writeCharacters("1234");
         writer.writeEndElement();
-        writer.writeStartElement("promocode");
-        writer.writeCharacters("str12340");
-        writer.writeEndElement();
         writer.writeStartElement("rating");
         writer.writeCharacters("Awesome");
+        writer.writeEndElement();
+        writer.writeStartElement("videoQuality");
+        writer.writeCharacters("BlueRay");
         writer.writeEndElement();
         writer.writeStartElement("description");
         writer.writeCharacters("Descridflk dfjjldv ");
